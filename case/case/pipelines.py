@@ -56,16 +56,16 @@ class CasePipeline(object):
 
     def _school_factory(self):
         return {
-            'school': None, 'degree': None, 'major': None, 'result': None, 
-            'enrollment_yr': None, 'enrollment_sms': None, 'notification_t': None
+            'school': '', 'degree': '', 'major': '', 'result': '', 
+            'enrollment_yr': '', 'enrollment_sms': '', 'notification_t': ''
         }
 
     def _person_factory(self):
         return {
-            'test_score': {'SAT': None, 'TOEFL': None, 'IELTS': None, 'ACT': None, 
-                'GRE': None, 'LSAT': None, 'GMAT': None, 'MCAT': None, 'sub': None}, 
-            'current_school': None, 'current_major': None, 'gpa': None, 
-            'notes': None
+            'test_score': {'SAT': '', 'TOEFL': '', 'IELTS': '', 'ACT': '', 
+                'GRE': '', 'LSAT': '', 'GMAT': '', 'MCAT': '', 'sub': ''}, 
+            'current_school': '', 'current_major': '', 'gpa': '', 
+            'notes': ''
         }
 
     def _parse_school_info(self, school_info, dic):

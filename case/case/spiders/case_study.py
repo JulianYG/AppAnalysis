@@ -10,21 +10,21 @@ class CaseStudySpider(scrapy.Spider):
 	# Start from different regions
 	start_urls = [
 		# UK
-	#	"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=486&typeid=992&filter=typeid&typeid=992&page=", 
+		"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=486&typeid=992&filter=typeid&typeid=992&page=", 
 		# Europe
-	#	"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=539&typeid=993&filter=typeid&typeid=993&page=", 
+		"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=539&typeid=993&filter=typeid&typeid=993&page=", 
 		# HK, Macow & Taiwan
-	#	"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=811&typeid=994&filter=typeid&typeid=994&page=",
+		"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=811&typeid=994&filter=typeid&typeid=994&page=",
 		# US
-	#	"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=49&typeid=158&filter=typeid&typeid=158&page=", 
+		"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=49&typeid=158&filter=typeid&typeid=158&page=", 
 		# Canada
-	#	"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=565&typeid=991&filter=typeid&typeid=991&page=", 
+		"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=565&typeid=991&filter=typeid&typeid=991&page=", 
 		# Singapore
-	#	"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=812&typeid=995&filter=typeid&typeid=995&page=", 
+		"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=812&typeid=995&filter=typeid&typeid=995&page=", 
 		# Japan & S. Korea
 		"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=484&typeid=996&filter=typeid&typeid=996&page=", 
 		# Oceania
-	#	"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=128&typeid=997&filter=typeid&typeid=997&page="
+		"http://bbs.gter.net/forum.php?mod=forumdisplay&fid=128&typeid=997&filter=typeid&typeid=997&page="
 		]
 
 	def parse(self, response):
