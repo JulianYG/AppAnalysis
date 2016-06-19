@@ -67,9 +67,8 @@ class CaseStudySpider(scrapy.Spider):
 			if len(info) > 1:
 				item = CaseItem()
 				item['region'] = self.parse_region(response.xpath('//title/text()').extract()[0])
-				info = [n.encode('utf-8') for n in response.xpath('//div[@class="typeoption"]/table').extract()]	
+				item['application_info'] = info 
 				item['url'] = response.url
-				item['application_info'] = info
 				item['pid'] = (response.xpath('(//*/div[@class="authi"]/a/@href)[1]').extract()[0]\
 					.split('-')[-1].split('.')[0]).encode('utf-8')
 				item['reply'] = response.xpath('(//*/div[@class="hm"]/span[@class="xi1"]/text())[2]').extract()[0].encode('utf-8')
