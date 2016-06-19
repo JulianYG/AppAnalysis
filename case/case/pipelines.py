@@ -22,7 +22,7 @@ class CasePipeline(object):
         # Initialize the info data structure
         info_dic = {
             # logistics
-            'pid': item['pid'], 'url': item['url'], 
+            'pid': item['pid'], 'url': item['url'], 'region': item['region'],
             # level of interests
             'reply': item['reply'], 'view': item['view'], 
             # applicant personal background
@@ -32,7 +32,7 @@ class CasePipeline(object):
         }
         content = item['application_info']
         # rely on this order since personal information is always the last one
-        school_tables = []
+        school_tables, personal_table = [], []
         
         for table in content:
             miso_soup = BSoup(table, "lxml")
@@ -40,13 +40,13 @@ class CasePipeline(object):
             if 'offer' in tag.get_text().strip():
                 school_tables.append(table)
             if tag.get_text().strip() == '个人情况':
-                personal_table = table
+                personal_table.append(table)
 
         for school in school_tables:
             school_dic = self._parse_school_info(school, self._school_factory())
             info_dic['app_info'].append(school_dic)
 
-        info_dic['bg_info'] = self._parse_personal_info(personal_table, self._person_factory())
+        info_dic['bg_info'] = self._parse_personal_info(personal_table[0], self._person_factory())
         
         line += json.dumps(info_dic, ensure_ascii=False) + '\n'
         self.file.write(line)

@@ -17,3 +17,4 @@ class CaseItem(scrapy.Item):
 	url = scrapy.Field()
 	reply = scrapy.Field()
 	view = scrapy.Field()
+	region = scrapy.Field()
