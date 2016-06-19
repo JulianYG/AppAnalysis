@@ -40,8 +40,8 @@ class CaseStudySpider(scrapy.Spider):
 			max_page = int(suimono.find("div", {"class": "pg"}).find_all('a')[-2].get_text())
 
 		for i in range(1, max_page + 1):
-			next_page = response.url[:-1] + str(i)
-			yield scrapy.Request(next_page, callback = self.parse_post_on_page)
+			next_page = response.url + str(i)
+			yield scrapy.Request(next_page, callback=self.parse_post_on_page)
 
 	def parse_post_on_page(self, response):
 		"""
@@ -49,10 +49,8 @@ class CaseStudySpider(scrapy.Spider):
 		"""
 		tonkotsu = BSoup(response.body, "lxml")
 		post_urls = tonkotsu.find_all("a", {"class": "xst"}, href=True)
-		
-
 		for post in post_urls:
-			thread_link = post['href']
+			thread_link = post['href'] 
 			yield scrapy.Request(thread_link, callback=self.parse_post)
 		
 
